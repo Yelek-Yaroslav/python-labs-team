@@ -98,8 +98,22 @@ def display_all_students():
             print(f"  {subject}: {grade}")
 
 
+def display_sorted_students_by_name():
+    print("\n--- Список студентів (відсортований за ПІБ) ---")
+    sorted_names = sorted(students.keys())
+    for full_name in sorted_names:
+        info = students[full_name]
+        print(f"\nПІБ: {full_name}")
+        print(f"Група: {info['Група']}")
+        print(f"Курс: {info['Курс']}")
+        print("Предмети та оцінки за ІІ семестр (відсортовані):")
+        sorted_subjects = sorted(info['Предмети та оцінки за ІІ семестр'].items())
+        for subject, grade in sorted_subjects:
+                    print(f"  {subject}: {grade}")
+
 add_student()
 display_all_students()
+display_sorted_students_by_name()
 
 
 # Завдання для наступного студента: розробити функцію сортування даних у словнику.

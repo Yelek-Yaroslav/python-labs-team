@@ -37,10 +37,8 @@ students = {
     }
 }
 
-#Функція Єлек Я.Ю.
-#Функція для додавання нового студента до словника.
+# Функція для додавання нового студента до словника
 def add_student():
-
     name = input("Введіть прізвище, ім'я та по батькові: ").strip()
     group = input("Введіть номер групи: ").strip()
 
@@ -76,7 +74,7 @@ def add_student():
             'Курс': course,
             'Предмети та оцінки за ІІ семестр': subjects_grades
         }
-        print(f"\Студента {name} успішно додано!")
+        print(f"Студента {name} успішно додано!")
         print("Його дані:")
         for key, value in students[name].items():
             print(f"  {key}: {value}")
@@ -97,7 +95,7 @@ def display_all_students():
         for subject, grade in info['Предмети та оцінки за ІІ семестр'].items():
             print(f"  {subject}: {grade}")
 
-
+# Функція для виведення інформації про всіх студентів, відсортованих за ПІБ
 def display_sorted_students_by_name():
     print("\n--- Список студентів (відсортований за ПІБ) ---")
     sorted_names = sorted(students.keys())
@@ -109,11 +107,24 @@ def display_sorted_students_by_name():
         print("Предмети та оцінки за ІІ семестр (відсортовані):")
         sorted_subjects = sorted(info['Предмети та оцінки за ІІ семестр'].items())
         for subject, grade in sorted_subjects:
-                    print(f"  {subject}: {grade}")
+            print(f"  {subject}: {grade}")
 
+# Функція для видалення студента зі словника
+def remove_student():
+    name = input("Введіть ПІБ студента, якого потрібно видалити: ").strip()
+
+    # перевірка, чи студент існує в словнику
+    if name in students:
+        del students[name]
+        print(f"Студента {name} успішно видалено.")
+    else:
+        print(f"Студент з таким ПІБ {name} не знайдений у словнику.")
+
+    # Виведення актуального списку студентів після видалення
+    display_all_students()
+
+# Виклик функцій для демонстрації
 add_student()
 display_all_students()
 display_sorted_students_by_name()
-
-
-# Завдання для наступного студента: розробити функцію сортування даних у словнику.
+remove_student()

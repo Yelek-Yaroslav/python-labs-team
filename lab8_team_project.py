@@ -22,4 +22,25 @@ def file_create_and_answer1():
         # якщо виникає помилка, викликаємо функцію обробки виключень
         file_error_check(e)
 
+def file_answer2():
+    # Крячко Артем: функція додає свою відповідь на питання та ставить нове питання 
+    try:
+        with open("team_file.txt", "a", encoding="utf-8") as file:
+            file.write("Студент 2: Іваненко Петро\n")
+            file.write("Відповідь на питання 1:\n")
+            file.write("У Python є такі основні режими відкриття файлів:\n")
+            file.write("r - читання (файл має існувати)\n")
+            file.write("w - запис (файл створюється або перезаписується)\n")
+            file.write("a - додавання (нові дані додаються в кінець файлу)\n")
+            file.write("r+ - читання та запис\n\n")
+            # нове питання
+            file.write("2. Яким чином у Python можна обробляти виключення при роботі з файлами?\n\n")
+        print("Студент 2: відповідь додана та поставлено нове питання.")
+    except Exception as e:
+        file_error_check(e)
+
+file_answer2()
+
+
 file_create_and_answer1()
+file_answer2()

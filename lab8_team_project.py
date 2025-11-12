@@ -23,7 +23,7 @@ def file_create_and_answer1():
         file_error_check(e)
 
 def file_answer2():
-    # Крячко Артем: функція додає свою відповідь на питання та ставить нове питання 
+    # Крячко Артем: функція додає свою відповідь на питання та ставить нове питання
     try:
         with open("team_file.txt", "a", encoding="utf-8") as file:
             file.write("Студент 2: Іваненко Петро\n")
@@ -39,8 +39,23 @@ def file_answer2():
     except Exception as e:
         file_error_check(e)
 
-file_answer2()
+def file_answer3():
+    # Басанець Єгор: додаємо відповідь і нове питання
+    try:
+        with open("team_file.txt", "a", encoding="utf-8") as file:
+            file.write("Студент 3: Басанець Єгор\n")
+            file.write("Відповідь на питання 2:\n")
+            file.write("У Python для обробки виключень при роботі з файлами використовуються конструкції try-except.\n")
+            file.write("При цьому код, який може викликати помилку, розміщується в блоці try, а саму помилку обробляє блок except.\n")
+            file.write("Це дозволяє ефективно обробляти помилки (наприклад, файл не знайдено або немає прав доступу), замість того щоб програма аварійно завершувалась.\n\n")
+            file.write("3. Як працює масив (array) в Python і для чого він використовується?\n\n")
+        print("Студент 3: відповідь додана та поставлено нове питання.")
+    except Exception as e:
+        file_error_check(e)
+
 
 
 file_create_and_answer1()
 file_answer2()
+file_answer3()
+

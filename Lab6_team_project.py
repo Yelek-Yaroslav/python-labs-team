@@ -123,8 +123,33 @@ def remove_student():
     # Виведення актуального списку студентів після видалення
     display_all_students()
 
+# Функція для обчислення середнього балу кожного студента
+def calculate_average_grade_for_all():
+    print("\n--- Середній бал студентів ---")
+
+    # перевірка, чи є студенти у словнику
+    if not students:
+        print("Список студентів порожній.")
+        return
+
+    # проходимо по всіх студентах у словнику
+    for full_name, info in students.items():
+        grades = info['Предмети та оцінки за ІІ семестр'].values()
+
+        # перевірка, чи є оцінки у студента
+        if not grades:
+            print(f"{full_name}: немає оцінок")
+            continue
+
+        # обчислення середнього балу
+        average = sum(grades) / len(grades)
+
+        # виведення результату
+        print(f"{full_name} — середній бал: {average:.2f}")
+
 # Виклик функцій для демонстрації
 add_student()
 display_all_students()
 display_sorted_students_by_name()
 remove_student()
+calculate_average_grade_for_all()
